@@ -1,0 +1,10 @@
+create_table("positions", {"if_exists": true}) {
+	t.Column("id", "uuid", {primary: true})
+	t.Column("user_id", "uuid", {})
+	t.Timestamps()
+	t.Column("asset", "string", {"size": 20, "null": false})
+	t.Column("justification", "text", {"null": false})
+	t.Column("bias", "string", {"null": false})
+	t.Column("expiration", "timestamp", {})
+	t.ForeignKey("user_id", {"users": ["id"]}, {"on_delete": "cascade"})
+}

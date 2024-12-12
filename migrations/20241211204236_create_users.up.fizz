@@ -1,4 +1,4 @@
-create_table("users"){
+create_table("users", {"if_exists": true}){
     t.Column("id", "uuid", {"primary": true})
     t.Column("email", "string", {})
     t.Column("password_hash", "string", {})

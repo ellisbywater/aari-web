@@ -21,8 +21,9 @@ type User struct {
 	Email        string    `json:"email" db:"email"`
 	PasswordHash string    `json:"password_hash" db:"password_hash"`
 
-	Password             string `json:"-" db:"-"`
-	PasswordConfirmation string `json:"-" db:"-"`
+	Password             string     `json:"-" db:"-"`
+	PasswordConfirmation string     `json:"-" db:"-"`
+	Positions            []Position `json:"positions,omitempty" has_many:"positions" order_by:"updated_at asc"`
 }
 
 // Create wraps up the pattern of encrypting the password and
